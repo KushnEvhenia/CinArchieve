@@ -28,6 +28,6 @@ Before you begin, ensure you have the following:
     
 4. Running the Project
     Access the project in your web browser using the configured domain:
-
+    ```sh
     https://your-domain.com
 
