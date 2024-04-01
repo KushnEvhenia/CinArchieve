@@ -35,21 +35,21 @@ if (isset($_SESSION['username'])) {
             $fileType = strtolower(pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION));
 
             if($fileType == 'txt'){
-            //Check fil type
+            //Check file type
 
                 $path = $_FILES['file']["tmp_name"];
 
                 $content = file_get_contents($path);
 
                 if($content){
-                //Check function got content of uploaded file
+                //Check whether function got content of uploaded file
 
                     $content = trim($content, "\xEF\xBB\xBF");
 
                     $movie_data = explode("\r\n\r\n\r\n", $content);
 
                     if(!empty($movie_data)){
-                    //Check if array with exploded content is not empty
+                    //Check if array with block of parsed content is not empty
 
                         foreach($movie_data as $arr){
 
@@ -58,14 +58,14 @@ if (isset($_SESSION['username'])) {
                             $parts = explode("\n", $arr);
 
                             if(!empty($parts)){
-                                //Check if array with exploded string is not empty
+                            //Check if array with exploded string is not empty
 
                                 foreach($parts as $part){
                                 
                                     $data = explode(':', $part);
 
                                     if(isset($data[0]) && isset($data[1])){
-                                    // Check if both key and value exist in the parsed data array before adding them
+                                    // Check if both key and value exist in array before adding them
 
                                         $parsedData[$data[0]] = $data[1];
 
@@ -76,7 +76,7 @@ if (isset($_SESSION['username'])) {
                             }
 
                             if(isset($parsedData['Title']) && isset($parsedData['Stars']) && isset($parsedData['Release Year']) && isset($parsedData['Format'])){
-                            //Check if written data in arr about movies exists 
+                            //Check if written data about movies exists in array
 
                                 $title = mysqli_real_escape_string($db, $parsedData['Title']);
                             
@@ -129,7 +129,7 @@ if (isset($_SESSION['username'])) {
     }
 
     else{
-        // Handle GET requests
+    // Handle GET requests
 
         if(isset($_GET['sort'])){
         // Handle sorting query
@@ -139,17 +139,18 @@ if (isset($_SESSION['username'])) {
         }
 
         elseif(isset($_GET['filmName'])){
-        // Handle filtering by film name
-            $filmName = mysqli_real_escape_string($db, $_GET['filmName']);
+        // Handle search by film name
+
+            $filmName = trim(mysqli_real_escape_string($db, $_GET['filmName']));
 
             $sql = "SELECT * FROM Movies WHERE Title LIKE '%$filmName%'";
 
         }
 
         elseif(isset($_GET['actorName'])){
-        // Handle filtering by actor name
+        // Handle search by actor name
 
-            $actorName = mysqli_real_escape_string($db, $_GET['actorName']);
+            $actorName = trim(mysqli_real_escape_string($db, $_GET['actorName']));
 
             $sql = "SELECT * FROM Movies WHERE Actors LIKE '%$actorName%'";
 
