@@ -21,14 +21,13 @@ Before you begin, ensure you have the following:
 3. Set up the database:
     Open your database manager tool and connect to your database server.
     Run the provided SQL script (database.sql) in your database manager to create the database and necessary tables.
-    Double check if your db password and user are matching 
+    Double check if your db username and password are matching those!
     ```sh
     $db = mysqli_connect('localhost', 'root', '', 'Movies');
-    If no write your username in second arg and password in third
+    #If no write your username in second function argument and password in third
     
 4. Running the Project
     Access the project in your web browser using the configured domain:
 
-    Copy code
     https://your-domain.com
 
