@@ -1,0 +1,227 @@
+/*----------------default----------------*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: 400;
+    font-family: 'Montseratt';
+    font-size: 14px;
+}
+
+input[type="submit"], a{
+    cursor: pointer;
+}
+
+/*----------------login----------------*/
+
+#login{
+    height: 100vh;
+    width: 100%;
+    background-image: url('./images/bg.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.shadow{
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+
+#login .holder{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+#login form{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    gap: 20px;
+}
+
+#login form input,
+#add input, #add textarea, #add select{
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    background: transparent;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    border-radius: 6px;
+}
+
+#add select option{
+    color: rgb(0, 0, 0);
+}
+
+#login form input::placeholder{
+    color: rgba(255, 255, 255, 0.7);
+}
+
+#login form input[type='submit'] {
+    background-color: rgb(64, 61, 57);
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; 
+}
+
+#login form input[type='submit']:hover{
+    background-color: rgb(37, 36, 34); 
+}
+
+#login h1{
+    color: rgb(255, 255, 255, 0.7);
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+}
+
+#errorContainer{
+    color: rgb(235, 94, 40);
+}
+
+/*----------------dashboard----------------*/
+
+.darken{
+    background-color: rgb(37, 36, 34);
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.dashboard-holder{
+    width: 85%;
+    background-color: rgb(255, 255, 255);
+    padding: 50px;
+}
+
+.dashboard-holder h1{
+    font-size: 25px;
+    position: relative;
+    padding: 10px;
+    margin: 30px 0px;
+}
+
+.dashboard-holder h1::before{
+    content: '';
+    height: 100%;
+    width: 4px;
+    background-color: rgb(235, 94, 40);
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0px;
+}
+
+#add{
+    background-color: rgb(64, 61, 57);
+    color: rgba(255, 255, 255);
+    padding: 50px 30px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#add input[type='submit']{
+    color: rgb(64, 61, 57);
+    background-color: rgba(255, 255, 255);
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; 
+}
+
+#add input[type='submit']:hover{
+    background-color: rgb(64, 61, 57);
+    color: rgb(255, 255, 255);
+}
+
+#sort input[type='submit'],
+#file input[type="submit"]{
+    background-image: url('./images/filter.svg');
+    height: 30px;
+    width: 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    background-color: rgb(204, 197, 185);
+    margin: 10px 0px;
+    border-radius: 6px;
+    color: transparent;
+}
+
+#file{
+    display: flex;
+    align-items: center;
+}
+
+#file input[type="submit"]{
+    background-image: url('./images/upload.svg');
+}
+
+.filter-form{
+    margin: 10px 0px;
+}
+
+.filter-form input[type="submit"]{
+    padding: 5px;
+}
+
+.filter-form input[type="text"]{
+    padding: 5px;
+}
+
+#reset{
+    text-decoration: none;
+    color: rgb(255,255,255);
+    background-color: rgb(235, 94, 40);
+    padding: 5px;
+    border-radius: 6px;
+    display: block;
+    margin: 10px 0px;
+    width: fit-content;
+}
+
+#movies-list{
+    margin: 25px 0px;
+}
+
+#movies-list h2{
+    font-size: 23px;
+    padding: 5px 0px;
+}
+
+.item{
+    margin: 20px 0px;
+}
+
+.item div{
+    margin-bottom: 5px;
+    color: rgb(64, 61, 57);
+}
+
+#delete{
+    background-color: rgb(235, 94, 40);
+    background-image: url('./images/trash.svg');
+    height: 30px;
+    width: 30px;
+    border: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 6px;
+    color: transparent;
+}
+
+/*----------------media----------------*/
+
+@media screen and (max-width: 850px) {
+    #login form{
+        width: 70%;
+    }
+}
